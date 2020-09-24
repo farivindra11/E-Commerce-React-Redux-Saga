@@ -1,69 +1,62 @@
 
 
 
-// start load chat data
-export const loadChatSuccess = (chats) => ({
-    type: 'LOAD_CHAT_SUCCESS',
-    chats
+// start load add data
+export const loadAddSuccess = (add) => ({
+    type: 'LOAD_ADD_SUCCESS',
+    add
 })
 
-export const loadChatFailure = () => ({
-    type: 'LOAD_CHAT_FAILURE'
+export const loadAddFailure = () => ({
+    type: 'LOAD_ADD_FAILURE'
 })
 
-export const loadChat = () => ({
-    type: 'LOAD_CHATS'
+export const loadAdd = () => ({
+    type: 'LOAD_ADD'
+})
+export const resetAdd = () => ({
+    type: 'RESET_ADD'
+})
+// end load add data
+
+// start post add data
+export const postAddFailure = () => ({
+    type: 'POST_NEW_ADD_FAILURE'
+})
+export const postAdd = (newData, history) => ({
+    type: 'POST_NEW_ADD', newData, history
+})
+//end post adds data
+
+
+//start load detail add
+export const loadDetailAdd = (id) => ({
+    type: 'LOAD_DETAIL_ADD',
+    id
 })
 
-// end load chat data
-
-// start post chat data
-
-export const postChatSuccess = (chats) => ({
-    type: 'POST_CHAT_SUCCESS',
-    chats
+export const loadDetailAddSuccess = (data) => ({
+    type: 'LOAD_DETAIL_ADD_SUCCESS',
+    data
 })
 
-export const postChatFailure = (id) => ({
-    type: 'POST_CHAT_FAILURE', id
+export const resetDetailAdd = () =>({
+    type:'RESET_DETAIL_ADD'
+})
+//end load detail add
+
+// UPVOTE AND DEVOTE
+
+export const upvote = () => ({
+    type: 'UPVOTE_ADD',
 })
 
-export const postChatRedux = (id, name, message) => ({
-    type: 'POST_CHAT', id, name, message
+export const devote = () => ({
+    type: 'DEVOTE_ADD',
 })
-
-
-export const postChat = (name, message) => ({
-    type: 'ADD_CHAT', name, message
+export const updateVote = (id,vote,history) => ({
+    type: 'UPDATE_VOTE',
+    id,
+    vote,
+    history
 })
-
-// start delete chat data
-
-export const deleteChatRedux = (id) => ({
-    type: 'DELETE_CHAT', id
-})
-
-export const deleteChatSuccess = (chats) => ({
-    type: 'DELETE_CHAT_SUCCESS',
-    chats
-})
-
-export const deleteChatFailure = () => ({
-    type: 'DELETE_CHAT_FAILURE'
-})
-
-
-export const deleteChat = (id) => ({
-    type: 'REMOVE_CHAT', id
-})
-
-
-// end delete chat data
-
-export const resendChatSuccess = (id) => ({
-    type: 'RESEND_CHAT_SUCCESS', id
-})
-
-export const resendChat = (id, name, message) => ({
-    type: 'RESEND_CHAT', id, name, message
-  })
