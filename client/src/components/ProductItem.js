@@ -1,12 +1,29 @@
 import React from 'react'
+import StarRatings from 'react-star-ratings';
+import numToRupiah from '../helpers/rupiah'
+import {Link} from "react-router-dom";
 
-export default function TodoItem(props) {
+export default function ItemProduct(props) {
+
     return (
-        <li>
-            <h2>{props.name}</h2>
-            <p>{props.message}</p>
-            {!props.sent && <p style={{ color: 'red', 'font-size': '8pt' }}>network failed</p>}
-            <button className="btn btn-danger" onClick={props.sent ? props.onDelete : props.resend}>{props.sent ? 'hapus' : 'kirim ulang'}</button>
-        </li>
+        <div className="card col-10 col-md-3 mx-3 my-3 card-custom text-center" >
+            <img className=" card-img-top rounded mx-auto d-block img-custom mt-3" src={props.image} alt={props.title}/>
+            <div className=" card-body ">
+                <h3 className="card-title font-weight-bold">{props.title}</h3>
+                <StarRatings
+                    rating={props.rate}
+                    starRatedColor="gold"
+                    numberOfStars={5}
+                    name='rating'
+                    starDimension="20px"
+                />
+                <p className="card-text text-custom">{props.description}</p>
+                <h2>{numToRupiah(props.price)}</h2>
+            </div>
+            <Link to={`/detail/${props.id}`} className=" btn btn-primary w-50 text-custom mx-auto mb-3">Detail Item</Link>
+        </div>
+
     )
+
+
 }
