@@ -1,6 +1,6 @@
 import numToRupiah from '../helpers/rupiah';
 
-const detaiAdd = (state = {}, action) => {
+const detailAdd = (state = {}, action) => {
     switch (action.type) {
         case 'LOAD_DETAIL_ADD' :
         const data = action.data
