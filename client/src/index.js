@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TodoBox from './components/TodoBox'
+import App from './App'
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from './sagas/chat'
+import rootSaga from './sagas/add'
+
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -20,10 +23,15 @@ sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-    <TodoBox />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Router >
+      <Switch>
+        <Route exact path="/"   component={App}/>
+       
+      </Switch>
+    </Router>
+  </Provider>
+</React.StrictMode>,
   document.getElementById('root')
 );
 
