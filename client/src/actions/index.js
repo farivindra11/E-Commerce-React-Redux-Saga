@@ -11,8 +11,10 @@ export const loadAddFailure = () => ({
     type: 'LOAD_ADD_FAILURE'
 })
 
-export const loadAdd = () => ({
-    type: 'LOAD_ADD'
+export const loadAdd = (page, limit) => ({
+    type: 'LOAD_ADD',
+    page,
+    limit
 })
 export const resetAdd = () => ({
     type: 'RESET_ADD'
@@ -46,7 +48,6 @@ export const resetDetailAdd = () =>({
 //end load detail add
 
 // UPVOTE AND DEVOTE
-
 export const upvote = () => ({
     type: 'UPVOTE_ADD',
 })
