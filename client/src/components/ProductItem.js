@@ -17,9 +17,10 @@ export default function ItemProduct(props) {
                     name='rating'
                     starDimension="20px"
                 />
-                <p className="card-text text-custom">{props.description}</p>
+                <p className="card-text">{props.description}</p>
                 <h2>{numToRupiah(props.price)}</h2>
             </div>
+            <div className="card-footer"></div>
             <Link to={`/detail/${props.id}`} className=" btn btn-primary w-50 text-custom mx-auto mb-3">Detail Item</Link>
         </div>
 
