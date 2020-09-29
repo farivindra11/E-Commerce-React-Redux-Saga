@@ -1,0 +1,7 @@
+.tall {
+    height: 500px;
+    width: 100%
+   }
+   .carousel-item{
+     background-size: cover;
+   }
