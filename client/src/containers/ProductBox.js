@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProductItem from '../components/ProductItem';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { connect } from 'react-redux';
-
+import { loadAdd,resetAdd } from '../actions'
 
 class ProductBox extends Component {
     constructor(props) {
@@ -15,6 +15,8 @@ class ProductBox extends Component {
     }
     
     componentDidMount() {
+        console.log('tes');
+        console.log(this.props);
         this.props.loadAdd(this.state.page, this.state.limit)
     }
 
@@ -56,7 +58,7 @@ class ProductBox extends Component {
                 dataLength={this.props.add.length}
                 next={this.fetchData}
                 hasMore={this.state.hasMore}
-                height={600}
+                height={670}
                 className='my-5'
                 loader={
                     <div className="d-flex justify-content-center">
