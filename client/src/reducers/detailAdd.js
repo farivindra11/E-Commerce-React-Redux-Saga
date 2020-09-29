@@ -2,7 +2,7 @@ import numToRupiah from '../helpers/rupiah';
 
 const detailAdd = (state = {}, action) => {
     switch (action.type) {
-        case 'LOAD_DETAIL_ADD' :
+        case 'LOAD_DETAIL_ADD_SUCCESS' :
         const data = action.data
         return {
             ...data,
