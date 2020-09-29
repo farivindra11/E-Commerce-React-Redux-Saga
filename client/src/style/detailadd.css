@@ -1,5 +1,5 @@
  /* detail product */
- ul > li{margin-right:25px;font-weight:lighter;cursor:pointer}
+ ul > li{margin-right:25px;cursor:pointer}
  li.active{border-bottom:3px solid silver;}
  
  .item-photo{display:flex;justify-content:center;align-items:center;border-right:1px solid #f6f6f6;}

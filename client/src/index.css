@@ -5,9 +5,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* list */
+.card-img-top{
+  padding: 10px;
+
+}
+.card {
+  border-radius: 20px;
+  text-align: center;
+}
+.card-footer{
+  background-color: rgba(0,0,0,.0);
+  border: none;
+}
+/* footer */
+
+.social-icon{
+  padding: 10px;
+}
+
+.infinite-scroll-component{
+  margin-top: 2rem!important;
 }
