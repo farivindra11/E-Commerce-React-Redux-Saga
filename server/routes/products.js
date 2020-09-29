@@ -6,7 +6,7 @@ const API_SERVER = "http://localhost:3001";
 
 
 /* GET home page. */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   try {
     const page = req.query.page || 1
     const limit = req.query.limit || 3
@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { title, rate, description, price, brand, detailProduct, capacities } = req.body;
+    const { title, rate, description, price, brand, detailProduct } = req.body;
 
     const file = req.files.image
     const fileName = file.name.toLowerCase().replace("", Date.now()).split(' ').join('-')
@@ -60,7 +60,6 @@ router.post('/', async (req, res) => {
       brand,
       detail_product: detailProduct,
       image: `${API_SERVER}/images/${fileName}`,
-      capacities: capacities.split(',')
     })
     res.json(catalog)
   } catch (error) {
