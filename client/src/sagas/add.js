@@ -41,6 +41,8 @@ const PATH = 'add';
 
 //load
 function* loadAdd(payload) {
+    console.log('disini saga');
+    console.log(payload);
     const { limit, page } = payload
     const QUERY_PATH = `${PATH}?limit=${limit}&page=${page}`
     try {
@@ -81,11 +83,75 @@ function* loadAddDetail(payload) {
     }
 }
 
+//add
+function* postAdd(payload) {
+    const { newData, history } = payload;
+    const formData = new FormData()
+    for (const key in newData) {
+        formData.append(key, newData[key])
+    }
+    try {
+
+        yield call(add, PATH, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'New Adds added successfully!',
+            showConfirmButton: false,
+            timer: 1200
+        }).then(() => history.push('/'))
+
+    } catch (error) {
+        console.log(error)
+        Swal.fire({
+            icon: 'warning',
+            title: "Network connection trouble!",
+            text: "Call administator to fix the issue",
+            type: "warning",
+            buttons: true,
+            dangerMode: true,
+            timer: 1500
+        })
+
+
+    }
+
+}
+
+//edit
+function* updateAddDetail(payload) {
+    const { id, vote, history } = payload
+    const QUERY_PATH = `${PATH}/${id}`
+
+    yield call(update, QUERY_PATH, { vote })
+    try {
+        yield put(actions.resetDetailAdd())
+    } catch (error) {
+        console.log(error)
+
+        Swal.fire({
+            icon: 'warning',
+            title: "Something went Wrong!",
+            text: "Call administator to fix the issue",
+            type: "warning",
+            buttons: true,
+            dangerMode: true,
+            timer: 1500
+        }).then(() => history.push(`/detail/${id}`))
+    }
+}
+
+
 export default function* rootSaga() {
     yield all([
 
         takeEvery('LOAD_ADD', loadAdd),
         takeEvery('LOAD_DETAIL_ADD', loadAddDetail),
-  
+        takeEvery('POST_NEW_ADD', postAdd),
+        takeEvery('UPDATE_VOTE', updateAddDetail)
     ]);
 }
