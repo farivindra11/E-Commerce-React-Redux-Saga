@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App'
+import AddForm from './containers/AddForm'
+import DetailAdd from './containers/DetailAdd'
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -27,7 +29,8 @@ ReactDOM.render(
     <Router >
       <Switch>
         <Route exact path="/"   component={App}/>
-       
+        <Route  path="/add" component={AddForm}/>
+        <Route  path="/detail/:id" component={DetailAdd}/>
       </Switch>
     </Router>
   </Provider>
